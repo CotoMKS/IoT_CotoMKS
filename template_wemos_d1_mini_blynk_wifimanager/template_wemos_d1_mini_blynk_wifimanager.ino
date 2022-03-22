@@ -11,8 +11,8 @@
  *  - AUTH_KEY
  */
 
-#define BLYNK_TEMPLATE_ID "TMPLzaOwrN_R"
-#define BLYNK_DEVICE_NAME "Kunci Kamar"
+#define BLYNK_TEMPLATE_ID "TMPLDvZsOOA4"
+#define BLYNK_DEVICE_NAME "Marzyah Lock"
 
 #include <BlynkSimpleEsp8266.h>
 #include <ESP8266WiFi.h>
@@ -21,7 +21,7 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 
-char auth[] = "X6Nbcf4RSYRNvbY4VFjwQefEiRjIaDmm";
+char auth[] = "AUTH_KEY";
 WiFiManager wifimanager;
 
 BLYNK_WRITE(V0) {
@@ -34,7 +34,7 @@ void setup() {
   pinMode(4, OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 
-  if (!wifimanager.autoConnect("MarzyahLock")) {
+  if (!wifimanager.autoConnect("MarzyahLock")) { // MarzyahLock bisa diganti menjadi apapun yang kalian mau
     digitalWrite(LED_BUILTIN, HIGH);
     delay(250);
     digitalWrite(LED_BUILTIN, LOW);
@@ -74,6 +74,6 @@ void loop() {
     digitalWrite(LED_BUILTIN, HIGH);
     delay(500);
     digitalWrite(LED_BUILTIN, LOW);
-    wifimanager.autoConnect("MarzyahLock");
+    wifimanager.autoConnect("MarzyahLock"); // MarzyahLock bisa diganti menjadi apapun yang kalian mau
   }
 }
